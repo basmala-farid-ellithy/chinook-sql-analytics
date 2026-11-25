@@ -1,0 +1,59 @@
+-- 1. Revenue by year with year-over-year growth (CTE + LAG)
+yr | revenue | yoy_pct
+2021 | 449.46 | None
+2022 | 481.45 | 7.1
+2023 | 469.58 | -2.5
+2024 | 477.53 | 1.7
+2025 | 450.58 | -5.6
+
+-- 2. Top 5 countries by revenue with share of total (window SUM)
+BillingCountry | revenue | pct_of_total
+USA | 523.06 | 22.5
+Canada | 303.96 | 13.1
+France | 195.1 | 8.4
+Brazil | 190.1 | 8.2
+Germany | 156.48 | 6.7
+
+-- 3. Top 3 genres per country by revenue (RANK partitioned)
+country | genre | revenue
+Brazil | Rock | 80.19
+Brazil | Latin | 52.47
+Brazil | Metal | 14.85
+Canada | Rock | 105.93
+Canada | Latin | 59.4
+Canada | Metal | 39.6
+USA | Rock | 155.43
+USA | Latin | 90.09
+USA | Metal | 63.36
+
+-- 4. Customer lifetime value: top 10 customers and their spend tier (NTILE)
+customer | Country | lifetime_value | quartile
+Helena Holý | Czech Republic | 49.62 | 1
+Richard Cunningham | USA | 47.62 | 1
+Luis Rojas | Chile | 46.62 | 1
+Ladislav Kovács | Hungary | 45.62 | 1
+Hugh O'Reilly | Ireland | 45.62 | 1
+Frank Ralston | USA | 43.62 | 1
+Julia Barnett | USA | 43.62 | 1
+Fynn Zimmermann | Germany | 43.62 | 1
+Astrid Gruber | Austria | 42.62 | 1
+Victor Stevens | USA | 42.62 | 1
+
+-- 5. Sales rep performance: customers handled and revenue per rep
+rep | customers | revenue
+Jane Peacock | 21 | 833.04
+Margaret Park | 20 | 775.4
+Steve Johnson | 18 | 720.16
+
+-- 6. Customers with no purchase in the last year of data (churn candidates)
+CustomerId | customer | last_purchase
+59 | Puja Srivastava | 2024-05-30 00:00:00
+38 | Niklas Schröder | 2024-06-30 00:00:00
+2 | Leonie Köhler | 2024-07-13 00:00:00
+17 | Jack Smith | 2024-07-31 00:00:00
+40 | Dominique Lefebvre | 2024-08-13 00:00:00
+55 | Mark Taylor | 2024-08-31 00:00:00
+19 | Tim Goyer | 2024-09-13 00:00:00
+34 | João Fernandes | 2024-10-01 00:00:00
+57 | Luis Rojas | 2024-10-14 00:00:00
+13 | Fernanda Ramos | 2024-11-01 00:00:00
